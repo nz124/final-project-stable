@@ -23,13 +23,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1811432727024893297}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
   m_LocalPosition: {x: -4.3000007, y: -0.7000002, z: 0.9700001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3519611483066277221}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!1 &1811432727279718990
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,6 +165,8 @@ MonoBehaviour:
   playerCamera: {fileID: 1811432727289629358}
   lookSpeed: 2
   lookXLimit: 45
+  GameOverUI: {fileID: 0}
+  waitTimer: 5
   unlockMouse: 127
 --- !u!1 &1811432727289629356
 GameObject:
@@ -322,6 +324,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4997554471052108817, guid: fca707464d61a02418d98b9d6fab8171, type: 3}
   m_PrefabInstance: {fileID: 1811432726328413463}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &3419756316740083757
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4293051206286002143}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.573226, y: 6.3409038, z: 0.5857275}
+  m_Center: {x: -6.505657, y: 3.1819956, z: -3.249097}
 --- !u!114 &1811432726328413458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,13 +354,23 @@ MonoBehaviour:
   projectile: {fileID: 6129135129677476128, guid: f9aeb1822502a5647b5f5b6c8fd874f8, type: 3}
   projectileLifetime: 5
   fireTime: 0.5
+  changeTime: 0.5
   bullets:
-  - {fileID: 342010524270109060, guid: 3de3dadff2aaf774ebb40032ed6b9fb4, type: 3}
   - {fileID: 6129135129677476128, guid: f9aeb1822502a5647b5f5b6c8fd874f8, type: 3}
+  - {fileID: 342010524270109060, guid: 3de3dadff2aaf774ebb40032ed6b9fb4, type: 3}
   - {fileID: 3306912234555329257, guid: 597c83d1cd28e924c93ed4500200ba0d, type: 3}
   curBullet: 0
   plat: {fileID: 0}
   bounce: {fileID: 0}
+  GreenAmmo: 5
+  PinkAmmo: 0
+  BlueAmmo: 0
+  GreenAmmoCount: {fileID: 0}
+  BlueAmmoCount: {fileID: 0}
+  PinkAmmoCount: {fileID: 0}
+  GreenCanvas: {fileID: 5254561258620403728, guid: b0f56e716d8a6d74cbfd203fb8e26de5, type: 3}
+  BlueCanvas: {fileID: 8952251346944115884, guid: cdb1e5db23ec1044897bef2d4ded6bcf, type: 3}
+  PinkCanvas: {fileID: 8632055739990004284, guid: fcb8146af308f2d448a67743b8fc729a, type: 3}
 --- !u!136 &1811432726328413459
 CapsuleCollider:
   m_ObjectHideFlags: 0

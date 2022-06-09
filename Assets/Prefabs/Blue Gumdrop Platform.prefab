@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1149755384003623742}
   - component: {fileID: 6809111689695612770}
   - component: {fileID: 5703255154371946752}
+  - component: {fileID: 3397080139839755338}
   m_Layer: 0
   m_Name: Blue Gumdrop Platform
   m_TagString: Untagged
@@ -63,6 +64,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3397080139839755338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342010524270109060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b45fd4fbada3404d864d3dc60e15201, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platform: {fileID: 1137706693631340960, guid: 89445f3671d18324290c38b284732386, type: 3}
 --- !u!1 &4326309432637845686
 GameObject:
   m_ObjectHideFlags: 0

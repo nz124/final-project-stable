@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FirstPersonController : MonoBehaviour
 {
@@ -8,11 +9,14 @@ public class FirstPersonController : MonoBehaviour
     public float walkingSpeed = 7.5f;
     public float jumpSpeed = 8.0f;
     public float gravity = 20.0f;
+    public float jumpTimer;
 
     //camera Variables
     public Camera playerCamera;
     public float lookSpeed = 2.0f;
     public float lookXLimit = 45.0f;
+    public GameObject GameOverUI;
+    public float waitTimer = 5f;
 
     //Public keycode for unlocking the mouse
     public KeyCode unlockMouse = KeyCode.Delete;
@@ -21,10 +25,12 @@ public class FirstPersonController : MonoBehaviour
     CharacterController characterController;
     Vector3 moveDirection = Vector3.zero;
     float rotationX = 0;
-    private int count;
+
     // Start is called before the first frame update
     void Start()
     {
+        jumpTimer = 0;
+        GameOverUI.SetActive(false);
         //find the character controller on the gameObject, our movement script here will use functionality from the character controller component to move
         characterController = GetComponent<CharacterController>();
 
@@ -36,6 +42,11 @@ public class FirstPersonController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        jumpTimer -= Time.deltaTime;
+        if (jumpTimer < 0)
+        {
+            jumpSpeed = 8.0f;
+        }
         //let players get their mouse back if they want
         if (Input.GetKeyDown(unlockMouse))
         {
@@ -92,6 +103,34 @@ public class FirstPersonController : MonoBehaviour
         /*rotate our character to match horizontal mouse input, we use multiply here because of the nature of quaternions. You can't use addition to add one to the other. 
         to combine 2 quaternions like we want here (our original quaternion rotation + the rotation we want to turn to based on mouse input) we multiply the original by the second*/
         transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
-
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Bouncy")
+        {
+            jumpSpeed = 32.0f;
+            jumpTimer = 1;
+        }
+    }
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Enemy Projectile")
+        {
+            GameOverUI.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
+        }
+    }
+    public void NextLevel()
+    {
+        SceneManager.LoadScene("JordanLevel");
+    }
+    public void ExitGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
+        Application.Quit();
     }
 }

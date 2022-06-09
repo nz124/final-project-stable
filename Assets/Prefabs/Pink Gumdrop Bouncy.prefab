@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 2787538523159269459}
   - component: {fileID: 4288992848125868156}
   - component: {fileID: 3294140891532945455}
+  - component: {fileID: -4802609017988082815}
   m_Layer: 0
   m_Name: Pink Gumdrop Bouncy
   m_TagString: Untagged
@@ -144,3 +145,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-4802609017988082815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3306912234555329257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b45fd4fbada3404d864d3dc60e15201, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platform: {fileID: 1137706693631340960, guid: 86fcdac2eb458134c9711257e491dbaf, type: 3}
